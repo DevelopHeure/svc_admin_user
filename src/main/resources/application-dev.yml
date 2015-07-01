@@ -1,0 +1,11 @@
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://192.168.59.103:8761}/eureka/
+  instance:
+    hostname: http://svc.manage.user
+    nonSecurePort: 80
+
+    

@@ -1,0 +1,32 @@
+server:
+  port: 8082
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://192.168.59.103:8761}/eureka/
+  instance:
+    hostname: http://svc.manage.user
+    nonSecurePort: 80
+endpoints:
+  enabled: false
+  info: 
+    enabled: true
+  beans:
+    enabled: true
+  env:
+    enabled: true
+spring:
+  application:
+    name: svc-manage-user
+  datasource:
+    url: jdbc:mysql://mysql/manageuser
+    username: root
+    password: passwd
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: create-drop
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
